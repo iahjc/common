@@ -59,3 +59,25 @@
 1. 本质还是通过自执行函数实现模块化
 2. 将每个模块编号，存入一个对象，每个模块标记依赖模块
 3. 实现了require方法，核心是通过call方法调用模块，并传入require,module，exports方法或对象，通过module存储模块信息，通过exports存储模块输出信息
+
+## AMD规范
+
+### AMD规范介绍
+1. AMD规范采用非同步加载模块，允许指定回调函数
+2. Node模块通常都位于本地，加载速度快，所以适用于同步加载
+3. 浏览器环境下，模块需要请求获取，所以适用于异步加载
+4. require.js是AMD的一个具体实现库
+
+## CMD规范介绍
+1。 CMD整合了CommonJS和AMD的优点，模块加载时异步的
+2. CMD专门用于浏览器端，sea.js是CMD规范的一个实现
+3. AMD和CMD最大的问题是没有通过语法升级解决模块化
+
+## ESModule规范介绍
+1. ESModule设计理念是希望在编译时就确定模块依赖关系及输入输出
+2. CommonJS和AMD必须在运行时才能确定依赖和输入，输出
+3. ESModule通过import加载模块，通过export输出模块
+
+## CommonJS和ESModule规范对比
+1. CommonJS模块输出的是值的拷贝，ES6模块输出的是值的引用
+2. CommonJS模块是运行时加载，ES6模块是编译时输出接口
