@@ -69,7 +69,7 @@
 4. require.js是AMD的一个具体实现库
 
 ## CMD规范介绍
-1。 CMD整合了CommonJS和AMD的优点，模块加载时异步的
+1. CMD整合了CommonJS和AMD的优点，模块加载时异步的
 2. CMD专门用于浏览器端，sea.js是CMD规范的一个实现
 3. AMD和CMD最大的问题是没有通过语法升级解决模块化
 
@@ -81,3 +81,46 @@
 ## CommonJS和ESModule规范对比
 1. CommonJS模块输出的是值的拷贝，ES6模块输出的是值的引用
 2. CommonJS模块是运行时加载，ES6模块是编译时输出接口
+3. CommonJS是单个值导出，ES6 Module可以导出多个
+4. CommonJS模块是同步加载，ES6 Module支持异步加载
+5. CommonJS的this是当前模块，ES6 Module的this是undefined
+6. CommonJS和ES6 Module的语法不同
+
+## 脚本和模块对比
+1. 模块具备更高的开发效率（可读性强，复用高效）
+2. 脚本具有更高的页面性能（模块文件多，加载速度慢）
+3. 模块在浏览器中运行会存在兼容性问题，要特别注意
+
+## 浏览器模块化的局限性
+1. 缺乏模块管理能力，模块分散在各个项目中
+2. 性能加载慢，无法大型项目中直接使用
+3. 这两个问题是npm和webpack核心解决的问题
+
+## npm诞生背景
+### 初步思路
+1. 集中管理所有模块，所有模块都上传到仓库（registry）
+2. 模块内创建package.json标注模块的基本信息
+3. 通过npm publish发布模块，上传到仓库（registry）
+4. 通过npm install安装模块，模块安装在node_modules目录
+
+## npm总结
+1. npm init创建模块，npm install安装模块，npm publish发布模块
+2. npm link本地开发，npm config调整配置，npm run调用scripts
+3. npm规范：package.json管理模块信息，node_modules保存依赖。
+
+## npm的局限
+1. npm只能解决模块的高效管理和获取问题
+2. npm无法解决性价加载问题
+3. 模块化发明后，制约其广泛应用的因素就是性能问题
+
+
+## webpack诞生背景
+1. webpack 2012年3月10号诞生
+2. 移植了GWT的功能
+3. 2014年instagram团队分享性能优化时，提出使用webpack的 code splitting 特性
+4. webpack的出现模糊了任务和构建的边界，使之融为一体
+
+## webpack的原理
+1. 最初的webpack核心解决的问题就是代码合并与拆分
+2. webpack的核心理念是将资源都视为模块，统一进行打包和处理
+3. webpack提供了loader和plugins完成功能扩展
