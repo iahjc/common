@@ -30,3 +30,27 @@
     Immediately-invoked function expression
 2. 缺陷：无法解决模块间相互依赖的问题
 
+### 第四阶段
+1. IIFE模式增强，支持传入自定义依赖
+2. 缺陷
+    多依赖传入时，代码阅读困难
+    无法支持大规模的模块开发
+    无特定语法支持，代码简陋
+
+
+## CommonJS规范介绍
+1. Node.js中默认模块化规范，每个文件就是一个模块，有自己的作用域
+2. Node中CommonJS模块加载采用同步加载方式
+3. 通过require加载模块，通过exports或module.exports输出模块
+
+### CommonJS规范特点
+1. 所有代码都运行在模块作用域，不会污染全局变量
+2. 模块可以多次加载，第一次加载时会运行模块，模块输出结果会被缓存，再次加载时，会从缓存结果中直接读取模块输出结果。
+3. 模块加载的顺序，按照其在代码中出现的顺序
+4. 模块输出的值时值的拷贝，类似于IIFE方案中的内部变量
+
+
+## CommonJS模块打包
+1. 按装browserify：npm install browserify -g
+2. 模块打包命令：browserify module_test/cjs/entry.js -o dist/bundle.js
+3. 注意，当存在多个模块时，每个模块都需要单独打包
